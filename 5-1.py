@@ -27,8 +27,33 @@ stan_data = {
     'y': y
 }
 
+# 正の整数を正規分布で推定する例（データの特性によっては二項分布でなくて計算が高速な正規分布を利用することがある）
+# 説明はP.66
 filename = 'model5-3'
 mcmc_result = mcmc_tools.sampling(filename, stan_data, n_jobs=4)
+mcmc_sample = mcmc_result.extract()
+
+# 練習問題 (1)
+# 各サンプリング結果からYを引き算したサンプリング結果を生成
+y_sample = y.values.reshape((50, 1)) * np.ones((1, len(mcmc_sample['mu'])))
+mu_sample = mcmc_sample['mu'].T
+
+ipsilon = y_sample - mu_sample
+print("ipsilon length: %d" % len(ipsilon))
+ipsilon_mean = np.mean(ipsilon, axis=1)
+
+noise = mcmc_sample['noise'].T
+print("noise length: %d" % len(noise))
+noise_mean = np.mean(noise, axis=1)
+
+d = pandas.DataFrame({
+    'p': ipsilon_mean,
+    'r': noise_mean
+})
+
+# 同一のデータになっているか確認
+d.plot()
+plt.show()
 
 # 予測分布
 a_range = np.arange(0, 2, 1)
@@ -112,12 +137,8 @@ plt.show()
 
 # ノイズの分布確認
 print(d.head())
-
-
 def ip_diff(d):
     return d.loc['Y'] - d.loc['p50']
-
-
 d['ip'] = d.apply(ip_diff, axis=1)
 print(d.head())
 # 仮定した正規分布に近い分布になっているか確認
