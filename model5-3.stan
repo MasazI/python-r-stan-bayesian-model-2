@@ -27,7 +27,11 @@ model {
 
 generated quantities {
     real y_pred[N];
+    real noise[N];
     for (i in 1:N) {
         y_pred[i] = normal_rng(mu[i], sigma);
+
+        # 練習問題5(2)
+        noise[i] = y[i] - mu[i];
     }
 }

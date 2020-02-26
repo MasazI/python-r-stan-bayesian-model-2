@@ -12,7 +12,10 @@ def sampling(filename,
              iter=2000,
              warmup=1000,
              n_jobs=4,
-             save=True):
+             save=True,
+             seed=1,
+             plots=False,
+             pars=None):
     """
     Sampling using mcmc with PyStan.
     :param filename:
@@ -33,22 +36,36 @@ def sampling(filename,
         'max_treedepth': max_treedepth
     }
 
-    mcmc_result = sm.sampling(
-        data=stan_data,
-        seed=1,
-        chains=chains,
-        iter=iter,
-        warmup=warmup,
-        control=control,
-        thin=6,
-        n_jobs=n_jobs
-    )
+    if pars is None:
+        mcmc_result = sm.sampling(
+            data=stan_data,
+            seed=seed,
+            chains=chains,
+            iter=iter,
+            warmup=warmup,
+            control=control,
+            thin=6,
+            n_jobs=n_jobs
+        )
+    else:
+        mcmc_result = sm.sampling(
+            data=stan_data,
+            seed=seed,
+            chains=chains,
+            iter=iter,
+            warmup=warmup,
+            control=control,
+            thin=6,
+            n_jobs=n_jobs,
+            pars=pars
+        )
 
     print(mcmc_result)
-    mcmc_result.plot()
+    if plots:
+        mcmc_result.plot()
     if save:
         plt.savefig("%s.png" % filename)
-    plt.show()
+        plt.show()
 
     # saving compiled model
     if not os.path.exists('%s.pkl' % filename):
