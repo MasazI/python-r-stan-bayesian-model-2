@@ -1,3 +1,10 @@
+# model8-3-logのベクトル化
+# vector化はサンプリング部分、つまり"~"の部分を記述できればそれでよい。
+# transformed parameters などでも用いられる代入演算では、
+# ほとんど計算時間の短縮に寄与しない。
+# 統計をとった計測の仕方はしていないが、今回のベクトル化で
+# 書籍のデータを使うと、0.5秒程度の高速化となった。
+
 # 非線形モデルの階層モデルを構築する
 import numpy as np
 import seaborn as sns
@@ -56,19 +63,15 @@ stan_data = {
     'Time_new': Time_new
 }
 
-print(Y)
-
 # コンパイル
-filename = 'model8-3-log'
+filename = 'model9-2-3'
 start = time.time()
-
 mcmc_result = mcmc_tools.sampling(filename, stan_data, adapt_delta=0.99, n_jobs=4, warmup=2000, iter=4000, seed=1234579)
 
 elapsed_time = time.time() - start
 print("elapsed_time:{0}".format(elapsed_time) + "[sec]")
 
 mcmc_sample = mcmc_result.extract()
-
 
 # モデリングをそのままStanにすると非線形関数を左辺にもってくることになってwarningが出る。
 # それだけでなく、サンプリング不能になってしまう。

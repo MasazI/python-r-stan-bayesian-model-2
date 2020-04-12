@@ -1,8 +1,8 @@
 data {
     int N;
-    real<lower=0, upper=1> score[N];
-    int<lower=0, upper=1> a[N];
-    real<lower=0, upper=1> y[N];
+    vector<lower=0, upper=1>[N] score;
+    vector<lower=0, upper=1>[N] a;
+    vector[N] y;
 }
 
 parameters {
@@ -14,15 +14,11 @@ parameters {
 
 transformed parameters {
     vector[N] mu;
-    for (i in 1:N) {
-        mu[i] = Intercept + b_s * score[i] +  b_a * a[i];
-    }
+    mu = Intercept + b_s * score +  b_a * a;
 }
 
 model {
-    for (i in 1:N) {
-        y[i] ~ normal(mu[i], sigma);
-    }
+    y ~ normal(mu, sigma);
 }
 
 generated quantities {

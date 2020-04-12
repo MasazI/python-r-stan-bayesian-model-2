@@ -15,7 +15,8 @@ def sampling(filename,
              save=True,
              seed=1,
              plots=False,
-             pars=None):
+             pars=None,
+             algorithm='NUTS'):
     """
     Sampling using mcmc with PyStan.
     :param filename:
@@ -45,7 +46,8 @@ def sampling(filename,
             warmup=warmup,
             control=control,
             thin=6,
-            n_jobs=n_jobs
+            n_jobs=n_jobs,
+            algorithm=algorithm
         )
     else:
         mcmc_result = sm.sampling(
@@ -57,7 +59,8 @@ def sampling(filename,
             control=control,
             thin=6,
             n_jobs=n_jobs,
-            pars=pars
+            pars=pars,
+            algorithm=algorithm
         )
 
     print(mcmc_result)
