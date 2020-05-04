@@ -1,7 +1,5 @@
 # 離散値をとるパラメータを使う
-# 場合の数を数え上げて、離散パラメータを消去した（周辺化消去）形で対数尤度を表現する
-# target記法
-# log_sum_exp関数
+# data-coin.txtのサンプルを使って、コインを2枚投げた後とする。
 
 # コインのパターン
 import numpy as np
@@ -15,6 +13,8 @@ import random
 # 喫煙率調査ファイル
 # Y: 0非喫煙、1喫煙
 coin = pandas.read_csv('data-coin.txt')
+#
+
 print(coin.head())
 print(coin.describe())
 
@@ -27,10 +27,19 @@ stan_data = {
 }
 
 # コンパイル
-filename = 'model11-1'
+# A)3
+filename = 'model11-exec-3'
 mcmc_result = mcmc_tools.sampling(filename, stan_data, n_jobs=4, seed=123)
 mcmc_sample = mcmc_result.extract()
+# qの中央値と95%信頼区間
+# qの平均は0.04（4%）
+# 1 %~13 %が95%信頼区間
 
-#        mean se_mean     sd   2.5%    25%    50%    75%  97.5%  n_eff   Rhat
-# q      0.21  3.5e-3   0.09   0.03   0.14   0.21   0.26   0.38    649    1.0
-# lp__  -69.7    0.04   0.91 -72.44 -69.86 -69.32 -69.13 -69.08    564    1.0
+
+filename = 'model11-exec-3b'
+mcmc_result = mcmc_tools.sampling(filename, stan_data, n_jobs=4, seed=123)
+mcmc_sample = mcmc_result.extract()
+# qの平均は0.13（13%）
+# 6%〜33%が95%信頼区間
+# p_coinの平均は88%
+# 68%~99%が95%信頼区間

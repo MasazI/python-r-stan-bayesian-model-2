@@ -1,5 +1,6 @@
-# model8-1-eqのベクトル化
-# ここでは、8-1-hieと等価なモデルををパラメータを削減して構築する。
+# target記法を使った方法に書き直す方法
+# model9-2-2.stan
+
 import numpy as np
 import seaborn as sns
 import pandas
@@ -34,7 +35,8 @@ stan_data = {
 }
 
 # コンパイル
-filename = 'model9-2-2'
+filename = 'model11-exec-1'
+# ~からtarget記法に変更
 mcmc_result = mcmc_tools.sampling(filename, stan_data, n_jobs=4, seed=123)
 mcmc_sample = mcmc_result.extract()
 # モデルは等価なので、性能的な違いは有意には出ないが、パラメータが少なくなった分、

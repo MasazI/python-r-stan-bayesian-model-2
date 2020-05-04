@@ -1,7 +1,6 @@
 # 離散値をとるパラメータを使う
 # 場合の数を数え上げて、離散パラメータを消去した（周辺化消去）形で対数尤度を表現する
-# target記法
-# log_sum_exp関数
+# functionsブロックに変更
 
 # コインのパターン
 import numpy as np
@@ -27,7 +26,7 @@ stan_data = {
 }
 
 # コンパイル
-filename = 'model11-1'
+filename = 'model11-exec-5'
 mcmc_result = mcmc_tools.sampling(filename, stan_data, n_jobs=4, seed=123)
 mcmc_sample = mcmc_result.extract()
 

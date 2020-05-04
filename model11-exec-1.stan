@@ -21,5 +21,8 @@ parameters {
 model {
     a ~ normal(a0, sigma_a);
     b ~ normal(b0, sigma_b);
-    Y ~ normal(a[KID] + b[KID] .* X, sigma);
+
+    for (n in 1:N) {
+        target += normal_lpdf(Y[n] | a[KID[n]] + b[KID[n]] * X[n], sigma);
+    }
 }
