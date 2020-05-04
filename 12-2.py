@@ -35,7 +35,7 @@ class SPM(ad.AnalysisData):
     def create_figure(self, mcmc_sample, state: str):
         pred_dates = [i for i in range(len(self.data['Y']) + 4)]
         # pred_dates = np.linspace(0, len(self.data['Y']) + 3, 100)
-        mcmc_tools.plot_ssm(mcmc_sample, pred_dates, '2nd diff local level'
+        mcmc_tools.plot_ssm(mcmc_sample, pred_dates, 'season and trend model'
                                                      'model', 'Y', state)
 
 
