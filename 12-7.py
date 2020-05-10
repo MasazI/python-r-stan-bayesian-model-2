@@ -4,6 +4,7 @@
 import mcmc_tools
 import analysis_data as ad
 
+import pandas
 import seaborn as sns
 import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D
@@ -54,6 +55,24 @@ class Markov2Dim(ad.AnalysisData2Dim):
         plt.setp(ax, xlabel='Plate Row', ylabel='Plate Column', zlabel='r')
         plt.show()
 
+    def observe_diff_mean(self, mcmc_sample):
+        d = self.data.values
+        TID = self.process.values
+        mean_Y = [d[TID == t + 1].mean() - d.mean() for t in range(self.process.max().max())]
+
+        quantile = [2.5, 50, 97.5]
+        colname = ['p0025', 'p0500', 'p0975']
+        beta = pandas.DataFrame(np.percentile(mcmc_sample['beta'], q=quantile, axis=0).T,
+                                  columns=colname)
+        beta['x'] = mean_Y
+        plt.plot([-5.0, 5.0], [-5.0, 5.0], 'k--', alpha=0.7)
+        plt.errorbar(beta.x, beta.p0500, yerr=[beta.p0500 - beta.p0025, beta.p0975 - beta.p0500],
+                     fmt='o', ecolor='gray', ms=10, alpha=0.8, marker='o', mfc='green', capsize=3)
+        ax = plt.axes()
+        ax.set_aspect('equal')
+        plt.setp(ax, xlabel='Mean of Y[TID]', ylabel='beat[t]')
+        plt.show()
+
 
 if __name__ == '__main__':
     m = Markov2Dim('data-2Dmesh.txt', 'data-2Dmesh-design.txt', 'model12-7')
@@ -65,3 +84,4 @@ if __name__ == '__main__':
     mcmc_sample = m.fit(stan_data)
 
     m.create_figure(mcmc_sample)
+    m.observe_diff_mean(mcmc_sample)
