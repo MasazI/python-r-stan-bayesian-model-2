@@ -40,9 +40,9 @@ class Markov2Dim(ad.AnalysisData2Dim):
 
     def create_figure(self, mcmc_sample):
         r = mcmc_sample['r'].mean(axis=0)
-        print(r)
+        # print(r)
         df = pandas.DataFrame(r, columns=['r'])
-        print(df)
+        # print(df)
         cmap = plt.get_cmap('binary')
         norm = plt.Normalize(vmin=9.0, vmax=19.0)
         fcol = lambda x: '#' + bytes(cmap(norm(x), bytes=True)[:3]).hex()
@@ -58,11 +58,11 @@ class Markov2Dim(ad.AnalysisData2Dim):
         plt.close()
 
     def create_data(self):
-        print(self.data)
-        print(self.process)
+        # print(self.data)
+        # print(self.process)
 
         N = len(self.data)
-        print(N)
+        # print(N)
 
         Y = self.data['Y']
         To = self.process['To']
@@ -106,7 +106,7 @@ class Markov2Dim(ad.AnalysisData2Dim):
 
     def observe_diff_mean(self, mcmc_sample):
         d = self.data['Y'].values
-        print(d)
+        # print(d)
         quantile = [2.5, 50, 97.5]
         colname = ['p0025', 'p0500', 'p0975']
         df = pandas.DataFrame(np.percentile(mcmc_sample['r'], q=quantile, axis=0).T,
