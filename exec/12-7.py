@@ -75,7 +75,7 @@ class Markov2Dim(ad.AnalysisData2Dim):
 
 
 if __name__ == '__main__':
-    m = Markov2Dim('data-2Dmesh.txt', 'data-2Dmesh-design.txt', 'model12-7')
+    m = Markov2Dim('data-2Dmesh.txt', 'data-2Dmesh-design.txt', '../model/model12-7')
     m.describe()
     m.observe_mesh()
 

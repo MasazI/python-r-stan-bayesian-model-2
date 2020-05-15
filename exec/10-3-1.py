@@ -20,7 +20,7 @@ import random
 # 対策
 # 分布からスケールを切り離す。
 stan_data = {}
-filename = 'model10-3-1'
+filename = '../model/model10-3-1'
 mcmc_result_b = mcmc_tools.sampling(filename, stan_data, n_jobs=4, seed=123)
 mcmc_sample = mcmc_result_b.extract()
 
@@ -61,7 +61,7 @@ plt.close()
 # 再パラメータ化したもの
 # これは、もとのパラメータを独立な正規分布からサンプリングして、サンプリング時に計算される
 # 対数事後分布の大きさによってサンプリングが偏らないようにできるというもの
-filename = 'model10-3-1-b'
+filename = '../model/model10-3-1-b'
 mcmc_result_b = mcmc_tools.sampling(filename, stan_data, n_jobs=4, seed=123)
 mcmc_sample_b = mcmc_result_b.extract()
 

@@ -27,7 +27,7 @@ class MembersK(lib.Members):
 
 
 if __name__ == '__main__':
-    m = MembersK('data-mix2.txt', 'model11-2-2')
+    m = MembersK('data-mix2.txt', '../model/model11-2-2')
     m.describe()
 
     # いくつかの正規分布が混合していると考えられる
@@ -39,7 +39,7 @@ if __name__ == '__main__':
     m.fit(d, {})
 
     # 同じことを、functionsブロックというstanの関数を独自定義できる機能を使って書き換える
-    mb = MembersK('data-mix2.txt', 'model11-2-2b')
+    mb = MembersK('data-mix2.txt', '../model/model11-2-2b')
     db = mb.create_stan_data()
     m.fit(db, {})
     # 同様の結果であることを確認する。

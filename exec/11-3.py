@@ -43,7 +43,7 @@ if __name__ == '__main__':
     # Sake: 0酒をない、1酒をのむ
     # Age: 年齢
     # Y: 来店関数
-    z = ZIP('data-ZIP.txt', 'model11-3')
+    z = ZIP('data-ZIP.txt', '../model/model11-3')
     z.describe()
 
     # z.observe('Sex')

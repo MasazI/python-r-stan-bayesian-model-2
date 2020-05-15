@@ -64,7 +64,7 @@ stan_data = {
 }
 
 # コンパイル
-filename = 'model9-2-3'
+filename = '../model/model9-2-3'
 start = time.time()
 mcmc_result = mcmc_tools.sampling(filename, stan_data, adapt_delta=0.99, n_jobs=4, warmup=2000, iter=4000, seed=1234579)
 

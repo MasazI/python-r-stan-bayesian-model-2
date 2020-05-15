@@ -139,7 +139,7 @@ class Markov2Dim(ad.AnalysisData2Dim):
 
 
 if __name__ == '__main__':
-    m = Markov2Dim('data-map-temperature.txt', 'data-map-neighbor.txt',  'model12-8')
+    m = Markov2Dim('data-map-temperature.txt', 'data-map-neighbor.txt',  '../model/model12-8')
     m.describe()
 
     # Figure of Japan map.

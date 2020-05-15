@@ -40,7 +40,7 @@ stan_data = {
 
 
 # コンパイル
-filename = 'model11-1-2'
+filename = '../model/model11-1-2'
 mcmc_result = mcmc_tools.sampling(filename, stan_data, n_jobs=4, seed=123)
 mcmc_sample = mcmc_result.extract()
 
@@ -50,7 +50,7 @@ mcmc_sample = mcmc_result.extract()
 # その場合、周辺化を簡潔にする公式があるかどうか確認して、あれば使うと良い。
 
 # コンパイル
-filename_b = 'model11-1-2b'
+filename_b = '../model/model11-1-2b'
 mcmc_result_b = mcmc_tools.sampling(filename_b, stan_data, n_jobs=4, seed=123)
 mcmc_sample_b = mcmc_result_b.extract()
 # ポアソン分布の周辺化は非常にシンプルな式で計算が可能。

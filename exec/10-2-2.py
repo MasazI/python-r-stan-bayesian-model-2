@@ -136,7 +136,7 @@ def plot(mcmc_sample):
     plt.close()
 
 
-mcmc_sample_hie = salary_modeling(salary2, 'model8-1-hie')
+mcmc_sample_hie = salary_modeling(salary2, '../model/model8-1-hie')
 plot(mcmc_sample_hie)
 
 # 描かれたグラフを見ると、単純にグループごとに計算したものよりも
@@ -159,7 +159,7 @@ pd_hie.plot.box()
 plt.show()
 
 # 比較
-mcmc_sample_t = salary_modeling(salary2, 'model10-2-2')
+mcmc_sample_t = salary_modeling(salary2, '../model/model10-2-2')
 a_group = mcmc_sample_t['a']
 pd_group = pandas.DataFrame(a_group)
 pd_group.plot.box()

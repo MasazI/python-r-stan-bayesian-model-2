@@ -15,7 +15,7 @@ stan_data = {
 }
 
 # コンパイル
-filename = 'model-exec9-3'
+filename = '../model/model-exec9-3'
 mcmc_result = mcmc_tools.sampling(filename, stan_data, n_jobs=4, algorithm='Fixed_param')
 mcmc_sample = mcmc_result.extract()
 

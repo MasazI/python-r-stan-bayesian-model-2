@@ -165,7 +165,7 @@ class LDA(ad.AnalysisData):
 
 
 if __name__ == '__main__':
-    lda = LDA('data-lda.txt', 'model11-exec-6')
+    lda = LDA('data-lda.txt', '../model/model11-exec-6')
     lda.describe()
     data = lda.create_data2()
 

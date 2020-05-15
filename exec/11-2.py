@@ -44,7 +44,7 @@ class Members():
 
 if __name__ == '__main__':
     # 社員の能力測定の結果
-    m = Members('data-mix1.txt', 'model11-2')
+    m = Members('data-mix1.txt', '../model/model11-2')
     m.describe()
 
     # 可視化、混合正規分布であることを確認

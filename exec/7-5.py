@@ -43,7 +43,7 @@ stan_data = {
 }
 
 # コンパイル
-filename = 'model7-5'
+filename = '../model/model7-5'
 mcmc_result = mcmc_tools.sampling(filename, stan_data, n_jobs=4, seed=123)
 mcmc_sample = mcmc_result.extract()
 # 1つめの回帰、年齢に対する体重はc2パラメータで表現表現しており、3.96で正の相関。

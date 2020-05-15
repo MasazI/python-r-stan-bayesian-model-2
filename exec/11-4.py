@@ -138,7 +138,7 @@ class LDA(ad.AnalysisData):
 
 
 if __name__ == '__main__':
-    lda = LDA('data-lda.txt', 'model11-4')
+    lda = LDA('data-lda.txt', '../model/model11-4')
     lda.describe()
 
     # モデリングの目的は、購入履歴から顧客の特徴を抽出したい、商品をグルーピングしたい

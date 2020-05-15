@@ -27,7 +27,7 @@ stan_data = {
     'N': N
 }
 
-filename = 'model-exec8-6'
+filename = '../model/model-exec8-6'
 mcmc_result = mcmc_tools.sampling(filename, stan_data,
                                   n_jobs=4,
                                   seed=123)

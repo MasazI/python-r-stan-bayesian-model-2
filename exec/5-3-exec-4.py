@@ -69,7 +69,7 @@ stan_data = {
 }
 
 # コンパイル
-filename = 'model5-5-exec-4'
+filename = '../model/model5-5-exec-4'
 mcmc_result = mcmc_tools.sampling(filename, stan_data, n_jobs=4)
 mcmc_sample = mcmc_result.extract()
 # この統計モデルは、ポアソン関数を指数関数を挟んだあとに使っているが、同時に使えるpoisson_logがあり、

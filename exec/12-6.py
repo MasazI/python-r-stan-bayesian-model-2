@@ -33,7 +33,7 @@ class Markov(ad.AnalysisData):
 
 
 if __name__ == '__main__':
-    m = Markov('data-kubo11a.txt', 'model12-6')
+    m = Markov('data-kubo11a.txt', '../model/model12-6')
     m.describe()
     m.observe_ts()
 

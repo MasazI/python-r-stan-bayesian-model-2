@@ -88,7 +88,7 @@ class Markov2Dim(ad.AnalysisData2Dim):
 
 
 if __name__ == '__main__':
-    m = Markov2Dim('data-2Dmesh.txt', 'data-2Dmesh-design.txt', 'model12-exec-3')
+    m = Markov2Dim('data-2Dmesh.txt', 'data-2Dmesh-design.txt', '../model/model12-exec-3')
 
     # noiseの大きさごとにサンプリングして結果を確認
     for noise_sigma in [0.1, 0.2, 0.3, 0.4, 0.5]:

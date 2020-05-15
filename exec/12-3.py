@@ -49,7 +49,7 @@ if __name__ == '__main__':
     # 収束しないと出てくるが以外と収束してしまっている、、、
 
     # 再パラメータ化
-    dcp_r = DetectChangePoint('data-changepoint.txt', 'model12-3-re')
+    dcp_r = DetectChangePoint('data-changepoint.txt', '../model/model12-3-re')
     dcp_r.describe()
     dcp_r.observe_ts()
     stan_data = dcp_r.create_data()

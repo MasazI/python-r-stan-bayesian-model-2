@@ -46,7 +46,7 @@ stan_data = {
 }
 
 # モデルのコンパイル
-filename = 'model5-4'
+filename = '../model/model5-4'
 mcmc_result = mcmc_tools.sampling(filename, stan_data, n_jobs=4)
 
 # 実測値と予測値のプロット

@@ -76,14 +76,14 @@ stan_data = {
 }
 
 # コンパイル
-filename = 'model8-2'
+filename = '../model/model8-2'
 mcmc_result = mcmc_tools.sampling(filename, stan_data, n_jobs=4, seed=123)
 mcmc_sample = mcmc_result.extract()
 
 # このモデリングでは、業界ごとに変化するのは平均のみと仮定しているが、
 # 分散も変化すると仮定するモデリングを行う。
 #
-filename = 'model8-2-sd'
+filename = '../model/model8-2-sd'
 mcmc_result_sd = mcmc_tools.sampling(filename, stan_data, n_jobs=4, seed=123)
 mcmc_sample_sd = mcmc_result.extract()
 # もしモデルが収束しない場合、複雑さに比べてデータが少ないことが原因が考えられる。

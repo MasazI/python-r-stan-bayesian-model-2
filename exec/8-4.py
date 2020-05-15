@@ -105,7 +105,7 @@ variables = ['b1', 'b2', 'b3', 'b4', 'bp', 'bc', 'sigma_p', 'sigma_c', 'q']
 # stanファイル、最後の確率モデリングでデータごとにせずにベクトルにしてしまうミスがよくある、、、
 # データ量の割にサンプリングに時間がかかるのでそれをヒントに気づけるように、、、
 # もちろんその前にきづければいいけど
-filename = 'model8-4'
+filename = '../model/model8-4'
 mcmc_result = mcmc_tools.sampling(filename, stan_data,
                                   n_jobs=4,
                                   seed=123,

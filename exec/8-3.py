@@ -59,7 +59,7 @@ stan_data = {
 print(Y)
 
 # コンパイル
-filename = 'model8-3-log'
+filename = '../model/model8-3-log'
 start = time.time()
 
 mcmc_result = mcmc_tools.sampling(filename, stan_data, adapt_delta=0.99, n_jobs=4, warmup=2000, iter=4000, seed=1234579)

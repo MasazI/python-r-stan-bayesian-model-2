@@ -41,7 +41,7 @@ class SPM(ad.AnalysisData):
 
 
 if __name__ == '__main__':
-    spm = SPM('data-ss2.txt', 'model12-exec-2')
+    spm = SPM('data-ss2.txt', '../model/model12-exec-2')
     spm.describe()
 
     spm.observe_ts()

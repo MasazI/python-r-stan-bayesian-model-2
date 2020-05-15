@@ -29,7 +29,7 @@ stan_data = {
 
 # 正の整数を正規分布で推定する例（データの特性によっては二項分布でなくて計算が高速な正規分布を利用することがある）
 # 説明はP.66
-filename = 'model5-3'
+filename = '../model/model5-3'
 mcmc_result = mcmc_tools.sampling(filename, stan_data, n_jobs=4)
 mcmc_sample = mcmc_result.extract()
 

@@ -53,7 +53,7 @@ stan_data = {
 }
 
 # コンパイル
-filename = 'model7-2-log'
+filename = '../model/model7-2-log'
 mcmc_result = mcmc_tools.sampling(filename, stan_data, n_jobs=4)
 mcmc_sample = mcmc_result.extract()
 

@@ -89,7 +89,7 @@ class Markov2Dim(ad.AnalysisData2Dim):
 
 
 if __name__ == '__main__':
-    m = Markov2Dim('data-2Dmesh.txt', 'data-2Dmesh-design.txt', 'model12-exec-4')
+    m = Markov2Dim('data-2Dmesh.txt', 'data-2Dmesh-design.txt', '../model/model12-exec-4')
 
     for sigma_yy in [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7]:
         # 12-exec-3 で与えたノイズのうち、rの推定結果が平坦になったもの

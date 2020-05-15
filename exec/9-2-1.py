@@ -23,7 +23,7 @@ stan_data = {
     'X_new': age_range
 }
 
-filename = 'model9-2-1'
+filename = '../model/model9-2-1'
 
 # 予測含んだサンプリング
 mcmc_result = mcmc_tools.sampling(filename, stan_data, n_jobs=4)

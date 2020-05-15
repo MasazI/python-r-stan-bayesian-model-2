@@ -28,7 +28,7 @@ stan_data = {
 
 # コンパイル
 # A)3
-filename = 'model11-exec-3'
+filename = '../model/model11-exec-3'
 mcmc_result = mcmc_tools.sampling(filename, stan_data, n_jobs=4, seed=123)
 mcmc_sample = mcmc_result.extract()
 # qの中央値と95%信頼区間
@@ -36,7 +36,7 @@ mcmc_sample = mcmc_result.extract()
 # 1 %~13 %が95%信頼区間
 
 
-filename = 'model11-exec-3b'
+filename = '../model/model11-exec-3b'
 mcmc_result = mcmc_tools.sampling(filename, stan_data, n_jobs=4, seed=123)
 mcmc_sample = mcmc_result.extract()
 # qの平均は0.13（13%）

@@ -48,7 +48,7 @@ stan_data = {
 # コンパイル
 # LKJ相関分布を使う方法
 # 知らないと適用が難しいが、変数間の相関を事前分布として設定するのによく使われるとのこと。
-filename = 'model10-2-4-c'
+filename = '../model/model10-2-4-c'
 stan_data_c = {
     'Y': Y,
     'N': N,

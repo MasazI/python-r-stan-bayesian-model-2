@@ -55,7 +55,7 @@ stan_data = {
 }
 
 # コンパイル
-filename = 'model7-3-conc'
+filename = '../model/model7-3-conc'
 mcmc_result = mcmc_tools.sampling(filename, stan_data, n_jobs=4, seed=123)
 mcmc_sample = mcmc_result.extract()
 # model4季では、左辺と右辺の型が異なってもコンパイルが通って計算できてしまうことに注意。

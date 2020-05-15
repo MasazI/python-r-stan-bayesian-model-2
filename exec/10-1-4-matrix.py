@@ -56,7 +56,7 @@ stan_data = {
 # 固定する前は事後確率が安定せずサンプリングがうまく行かないが、固定すると進む。
 
 # コンパイル
-filename = 'model10-14-matrix'
+filename = '../model/model10-14-matrix'
 start = time.time()
 mcmc_result = mcmc_tools.sampling(filename, stan_data, n_jobs=4)
 elapsed_time = time.time() - start

@@ -43,13 +43,13 @@ stan_data = {
 }
 
 # コンパイル
-filename = 'model9-3-1'
+filename = '../model/model9-3-1'
 start_1 = time.time()
 mcmc_result = mcmc_tools.sampling(filename, stan_data, n_jobs=4)
 elapsed_time_1 = time.time() - start_1
 
 # ベクトル化による高速化
-filename = 'model9-3-1-vec'
+filename = '../model/model9-3-1-vec'
 start_2 = time.time()
 mcmc_result = mcmc_tools.sampling(filename, stan_data, n_jobs=4)
 elapsed_time_2 = time.time() - start_2

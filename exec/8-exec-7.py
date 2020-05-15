@@ -45,7 +45,7 @@ stan_data = {
 # モデリング
 # この例題では説明変数は"処理の違い"のみになっている。
 # その他は個体IDと鉢に依存するノイズを生成して、ポアソン分布のパラメータに追加する形になっている。
-filename = 'model-exec8-7'
+filename = '../model/model-exec8-7'
 mcmc_result = mcmc_tools.sampling(filename, stan_data,
                                   n_jobs=4,
                                   seed=123)

@@ -44,7 +44,7 @@ stan_data = {
 }
 
 # コンパイル
-filename = 'model7-9'
+filename = '../model/model7-9'
 mcmc_result = mcmc_tools.sampling(filename, stan_data, n_jobs=4, seed=123)
 mcmc_sample = mcmc_result.extract()
 

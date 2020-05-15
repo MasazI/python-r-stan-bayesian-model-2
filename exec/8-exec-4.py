@@ -93,7 +93,7 @@ stan_data = {
 # 保存する変数
 variables = ['b1', 'b2', 'b3', 'b4', 'bp', 'bc', 'q']
 
-filename = 'model-8-exec-4'
+filename = '../model/model-8-exec-4'
 mcmc_result = mcmc_tools.sampling(filename, stan_data,
                                   n_jobs=4,
                                   seed=123,

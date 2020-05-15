@@ -43,7 +43,7 @@ stan_data = {
 }
 
 # モデリング
-filename = 'model10-1-5'
+filename = '../model/model10-1-5'
 mcmc_result = mcmc_tools.sampling(filename, stan_data, n_jobs=4)
 mcmc_sample = mcmc_result.extract()
 

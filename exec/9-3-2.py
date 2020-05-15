@@ -44,7 +44,7 @@ stan_data = {
 }
 
 # コンパイル
-filename = 'model9-3-2'
+filename = '../model/model9-3-2'
 start_1 = time.time()
 mcmc_result = mcmc_tools.sampling(filename, stan_data, n_jobs=4)
 elapsed_time_1 = time.time() - start_1

@@ -1,3 +1,8 @@
+import os
+import sys
+
+sys.path.append(os.path.join(os.path.dirname(__file__), '.'))
+
 import numpy as np
 import pystan
 import pandas
@@ -37,7 +42,7 @@ stan_data = {
     'y2': y2
 }
 
-filename = '4-exec'
+filename = '../model/4-exec'
 
 # (2), (3)
 mcmc_result = mcmc_tools.sampling(filename, stan_data, n_jobs=4)
@@ -53,7 +58,7 @@ prob_lower_mu2 = len(df_lower_mu2)/len(df)
 print(prob_lower_mu2)
 
 # (5)
-filename_2 = '4-exec-2'
+filename_2 = '../model/4-exec-2'
 mcmc_result = mcmc_tools.sampling(filename_2, stan_data, n_jobs=4)
 
 df = pandas.DataFrame({'mu1': mcmc_result['mu1'], 'mu2': mcmc_result['mu2']})
